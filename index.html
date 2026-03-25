@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anjali Singh — HR Professional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose: #e11d48;
+  --rose-light: #fff1f4;
+  --rose-mid: #fda4af;
+  --dark: #0f1117;
+  --mid: #374151;
+  --soft: #6b7280;
+  --pale: #f9fafb;
+  --border: #e5e7eb;
+  --white: #ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--dark);overflow-x:hidden;}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px 56px;transition:all .35s ease;
+}
+nav.scrolled{
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  padding:14px 56px;
+}
+.nav-logo{
+  font-family:'Playfair Display',serif;
+  font-size:1.35rem;font-weight:700;color:var(--dark);text-decoration:none;
+}
+.nav-logo span{color:var(--rose);}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
+.nav-links a{
+  font-size:.8rem;font-weight:600;letter-spacing:.08em;
+  color:var(--mid);text-decoration:none;text-transform:uppercase;
+  position:relative;padding-bottom:3px;transition:color .2s;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:0;
+  height:1.5px;width:0;background:var(--rose);transition:width .25s;
+}
+.nav-links a:hover{color:var(--dark);}
+.nav-links a:hover::after{width:100%;}
+.nav-resume{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--rose);color:#fff;
+  padding:9px 22px;border-radius:7px;
+  font-size:.8rem;font-weight:600;letter-spacing:.04em;
+  text-decoration:none;transition:all .2s;border:2px solid var(--rose);
+}
+.nav-resume:hover{background:#be123c;border-color:#be123c;transform:translateY(-1px);box-shadow:0 8px 20px rgba(225,29,72,.32);}
+
+/* HERO */
+#hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;padding:100px 56px 60px;
+  position:relative;overflow:hidden;background:var(--white);gap:48px;
+}
+.hero-mesh{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 700px 550px at -5% 25%, rgba(225,29,72,.055) 0%, transparent 70%),
+    radial-gradient(ellipse 350px 350px at 100% 75%, rgba(225,29,72,.035) 0%, transparent 70%);
+}
+.hero-left{position:relative;z-index:1;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--rose-light);color:var(--rose);
+  border:1px solid #fecdd3;border-radius:100px;
+  padding:6px 16px;font-size:.72rem;font-weight:700;
+  letter-spacing:.07em;text-transform:uppercase;margin-bottom:26px;
+  animation:fadeUp .6s ease both;
+}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--rose);animation:pulse 2s infinite;}
+.hero-name{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(44px,6vw,92px);
+  font-weight:900;line-height:.95;color:var(--dark);
+  animation:fadeUp .7s .1s ease both;
+}
+.hero-name .hi{color:var(--rose);}
+.hero-role{
+  margin-top:18px;font-size:clamp(.88rem,1.3vw,1.05rem);
+  color:var(--soft);font-weight:400;line-height:1.7;
+  animation:fadeUp .7s .2s ease both;
+}
+.hero-role strong{color:var(--mid);font-weight:600;}
+.hero-desc{
+  margin-top:16px;font-size:.94rem;line-height:1.82;
+  color:var(--mid);max-width:490px;
+  animation:fadeUp .7s .3s ease both;
+}
+.hero-ctas{
+  margin-top:34px;display:flex;gap:12px;flex-wrap:wrap;
+  animation:fadeUp .7s .4s ease both;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--rose);color:#fff;padding:12px 26px;border-radius:7px;
+  font-size:.84rem;font-weight:600;text-decoration:none;
+  transition:all .2s;border:2px solid var(--rose);
+}
+.btn-primary:hover{background:#be123c;border-color:#be123c;transform:translateY(-2px);box-shadow:0 10px 28px rgba(225,29,72,.3);}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:7px;
+  background:transparent;color:var(--dark);padding:12px 26px;border-radius:7px;
+  font-size:.84rem;font-weight:600;text-decoration:none;
+  transition:all .2s;border:2px solid var(--border);
+}
+.btn-outline:hover{border-color:var(--mid);transform:translateY(-2px);}
+
+/* hero icons row */
+.hero-icons{
+  margin-top:40px;display:flex;gap:12px;flex-wrap:wrap;
+  animation:fadeUp .7s .5s ease both;
+}
+.hero-icon{
+  display:flex;align-items:center;justify-content:center;
+  width:42px;height:42px;border:1.5px solid var(--border);
+  border-radius:50%;color:var(--soft);text-decoration:none;
+  transition:all .24s;position:relative;
+}
+.hero-icon:hover{border-color:var(--rose);color:var(--rose);transform:translateY(-3px);box-shadow:0 8px 20px rgba(225,29,72,.16);}
+
+/* HERO RIGHT - orbiting cards */
+.hero-right{
+  position:relative;z-index:1;
+  display:flex;align-items:center;justify-content:center;
+  height:500px;
+  animation:fadeUp .7s .25s ease both;
+}
+.orbit-wrap{
+  position:relative;width:360px;height:360px;
+}
+/* spinning dashed ring */
+.spin-ring{
+  position:absolute;top:50%;left:50%;
+  width:300px;height:300px;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  border:1.5px dashed rgba(225,29,72,.18);
+  animation:spinRing 22s linear infinite;
+}
+.spin-ring2{
+  position:absolute;top:50%;left:50%;
+  width:200px;height:200px;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  border:1px dashed rgba(225,29,72,.1);
+  animation:spinRing 14s linear infinite reverse;
+}
+/* center badge */
+.center-badge{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:140px;height:140px;border-radius:50%;
+  background:linear-gradient(145deg,#fff1f4,#fce7ec);
+  border:2.5px solid var(--rose-mid);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:0 20px 56px rgba(225,29,72,.2),0 4px 16px rgba(225,29,72,.1),inset 0 1px 2px rgba(255,255,255,.8);
+  z-index:10;
+  animation:breathe 4s ease-in-out infinite;
+}
+.cb-initials{
+  font-family:'Playfair Display',serif;
+  font-size:2.6rem;font-weight:900;color:var(--rose);line-height:1;
+}
+.cb-sub{font-size:.6rem;color:var(--rose);font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-top:3px;}
+/* orbit cards */
+.oc{
+  position:absolute;
+  background:var(--white);
+  border:1.5px solid var(--border);
+  border-radius:14px;
+  padding:13px 16px;
+  box-shadow:0 8px 28px rgba(0,0,0,.07),0 2px 6px rgba(0,0,0,.04);
+  min-width:135px;max-width:155px;
+  animation:floatY 6s ease-in-out infinite;
+  z-index:5;
+}
+.oc:nth-child(3){top:4px;left:-25px;animation-delay:0s;}
+.oc:nth-child(4){top:4px;right:-25px;animation-delay:-1.5s;}
+.oc:nth-child(5){bottom:20px;left:-15px;animation-delay:-3s;}
+.oc:nth-child(6){bottom:20px;right:-15px;animation-delay:-4.5s;}
+.oc-ico{
+  width:28px;height:28px;border-radius:8px;
+  background:var(--rose-light);border:1px solid #fecdd3;
+  display:flex;align-items:center;justify-content:center;margin-bottom:7px;
+}
+.oc-title{font-size:.72rem;font-weight:700;color:var(--dark);}
+.oc-sub{font-size:.63rem;color:var(--soft);margin-top:2px;}
+.oc-pill{
+  display:inline-block;margin-top:6px;
+  background:var(--rose-light);color:var(--rose);
+  border-radius:100px;padding:2px 8px;
+  font-size:.6rem;font-weight:700;letter-spacing:.04em;
+}
+
+/* scroll hint */
+.scroll-hint{
+  position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:7px;
+  color:var(--soft);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;z-index:1;
+}
+.scroll-dot{width:18px;height:28px;border:1.5px solid var(--border);border-radius:100px;position:relative;}
+.scroll-dot::after{
+  content:'';position:absolute;top:4px;left:50%;transform:translateX(-50%);
+  width:3px;height:7px;border-radius:100px;background:var(--rose);
+  animation:bobDown 1.8s ease-in-out infinite;
+}
+
+/* SECTIONS */
+section{padding:96px 56px;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.7rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--rose);margin-bottom:14px;
+}
+.eyebrow::before{content:'';width:24px;height:2px;background:var(--rose);}
+.sec-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(30px,4vw,54px);
+  font-weight:700;line-height:1.1;color:var(--dark);margin-bottom:52px;
+}
+
+/* ABOUT */
+#about{background:var(--white);}
+.about-wrap{display:grid;grid-template-columns:340px 1fr;gap:72px;align-items:start;}
+.about-sticky{position:sticky;top:120px;}
+.about-card{
+  background:var(--pale);border:1.5px solid var(--border);
+  border-radius:20px;padding:28px;overflow:hidden;position:relative;
+}
+.about-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3.5px;
+  background:linear-gradient(90deg,var(--rose),var(--rose-mid));
+}
+.about-avatar{
+  width:58px;height:58px;border-radius:50%;
+  background:var(--rose-light);border:2px solid var(--rose-mid);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem;font-weight:700;color:var(--rose);margin-bottom:14px;
+}
+.ac-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--dark);margin-bottom:3px;}
+.ac-role{font-size:.76rem;color:var(--soft);font-weight:500;margin-bottom:18px;line-height:1.55;}
+.ac-stat{
+  display:flex;justify-content:space-between;
+  padding:9px 0;border-bottom:1px solid var(--border);font-size:.8rem;
+}
+.ac-stat:last-of-type{border-bottom:none;}
+.ac-stat-l{color:var(--soft);}
+.ac-stat-v{color:var(--dark);font-weight:600;}
+.ac-links{margin-top:18px;display:flex;flex-direction:column;gap:9px;}
+.ac-link{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:.8rem;color:var(--mid);text-decoration:none;
+  padding:9px 14px;background:var(--white);border:1.5px solid var(--border);
+  border-radius:10px;transition:all .2s;
+}
+.ac-link:hover{border-color:var(--rose);color:var(--rose);}
+.ac-link.resume{border-color:var(--rose-mid);color:var(--rose);}
+
+.about-right p{font-size:.97rem;line-height:1.85;color:var(--mid);margin-bottom:22px;}
+.skill-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px;}
+.skill-card{
+  background:var(--pale);border:1.5px solid var(--border);
+  border-radius:13px;padding:16px 18px;transition:all .25s;
+}
+.skill-card:hover{border-color:var(--rose-mid);box-shadow:0 6px 20px rgba(225,29,72,.07);transform:translateY(-3px);}
+.skill-head{font-size:.67rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rose);margin-bottom:9px;}
+.skill-tags{display:flex;flex-wrap:wrap;gap:5px;}
+.s-tag{
+  font-size:.72rem;font-weight:500;color:var(--mid);
+  background:var(--white);border:1px solid var(--border);
+  border-radius:100px;padding:3px 9px;
+}
+.cert-chip{
+  font-size:.72rem;font-weight:600;
+  background:var(--rose-light);color:var(--rose);
+  border:1px solid #fecdd3;border-radius:100px;padding:3px 10px;
+}
+
+/* EXPERIENCE */
+#experience{background:var(--pale);}
+.exp-list{display:flex;flex-direction:column;gap:14px;max-width:880px;}
+.exp-item{
+  background:var(--white);border:1.5px solid var(--border);
+  border-radius:16px;padding:30px 34px;
+  position:relative;overflow:hidden;transition:all .3s;
+}
+.exp-item::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:4px;background:var(--rose);border-radius:16px 0 0 16px;
+  opacity:0;transition:opacity .25s;
+}
+.exp-item:hover{border-color:transparent;box-shadow:0 12px 40px rgba(0,0,0,.09);transform:translateY(-3px);}
+.exp-item:hover::before{opacity:1;}
+.exp-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:16px;}
+.exp-co{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rose);margin-bottom:5px;}
+.exp-role{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--dark);}
+.exp-tag{
+  display:inline-flex;align-items:center;
+  background:var(--rose-light);color:var(--rose);
+  border-radius:100px;padding:2px 9px;
+  font-size:.65rem;font-weight:700;letter-spacing:.04em;margin-left:7px;
+}
+.exp-date{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--pale);border:1px solid var(--border);
+  border-radius:100px;padding:6px 13px;
+  font-size:.73rem;font-weight:600;color:var(--soft);white-space:nowrap;
+}
+.exp-date svg{width:10px;height:10px;}
+.exp-ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.exp-ul li{
+  display:flex;align-items:flex-start;gap:11px;
+  font-size:.88rem;line-height:1.65;color:var(--mid);
+}
+.exp-ul li::before{content:'';flex-shrink:0;width:5px;height:5px;border-radius:50%;background:var(--rose-mid);margin-top:8px;}
+
+/* EDUCATION */
+#education{background:var(--white);}
+.edu-wrap{display:grid;grid-template-columns:1fr 1fr;gap:36px;max-width:880px;}
+.edu-main{
+  background:var(--dark);color:var(--white);
+  border-radius:20px;padding:42px 38px;
+  position:relative;overflow:hidden;
+}
+.edu-main::after{
+  content:'BCA';
+  position:absolute;right:-16px;bottom:-24px;
+  font-family:'Playfair Display',serif;
+  font-size:120px;font-weight:900;
+  color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.06);
+  line-height:1;user-select:none;pointer-events:none;
+  white-space:nowrap;
+}
+.edu-yr{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rose-mid);margin-bottom:13px;}
+.edu-deg{
+  font-family:'Playfair Display',serif;
+  font-size:1.55rem;font-weight:700;color:var(--white);line-height:1.28;margin-bottom:9px;
+}
+.edu-inst{font-size:.88rem;color:rgba(255,255,255,.5);font-weight:400;line-height:1.45;margin-bottom:26px;}
+.edu-score{display:flex;align-items:baseline;gap:7px;}
+.edu-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;color:var(--rose-mid);line-height:1;}
+.edu-denom{font-size:.82rem;color:rgba(255,255,255,.35);}
+
+.edu-side{display:flex;flex-direction:column;gap:14px;}
+.edu-scard{
+  background:var(--pale);border:1.5px solid var(--border);
+  border-radius:13px;padding:18px 20px;transition:all .25s;
+}
+.edu-scard:hover{border-color:var(--rose-mid);transform:translateY(-2px);box-shadow:0 6px 20px rgba(225,29,72,.07);}
+.edu-stitle{font-size:.67rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rose);margin-bottom:9px;}
+.edu-sitems{display:flex;flex-direction:column;gap:6px;}
+.edu-sitem{display:flex;align-items:flex-start;gap:7px;font-size:.8rem;color:var(--mid);}
+.edu-sitem::before{content:'→';color:var(--rose);font-weight:700;font-size:.78rem;flex-shrink:0;margin-top:1px;}
+
+/* FOOTER */
+footer{background:var(--dark);color:var(--white);padding:56px 56px 36px;}
+.footer-top{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.07);
+  flex-wrap:wrap;gap:28px;
+}
+.f-name{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;margin-bottom:5px;}
+.f-name span{color:var(--rose);}
+.f-tag{color:rgba(255,255,255,.32);font-size:.83rem;margin-bottom:20px;}
+.f-socials{display:flex;gap:11px;}
+.f-social{
+  display:flex;align-items:center;justify-content:center;
+  width:38px;height:38px;border:1.5px solid rgba(255,255,255,.1);
+  border-radius:50%;color:rgba(255,255,255,.32);
+  text-decoration:none;transition:all .2s;
+}
+.f-social:hover{border-color:var(--rose);color:var(--rose);}
+.f-nav{display:flex;flex-direction:column;gap:9px;align-items:flex-end;}
+.f-nav a{color:rgba(255,255,255,.35);text-decoration:none;font-size:.82rem;transition:color .2s;}
+.f-nav a:hover{color:var(--white);}
+.f-copy{padding-top:22px;text-align:center;color:rgba(255,255,255,.16);font-size:.73rem;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
+
+/* KEYFRAMES */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+@keyframes spinRing{from{transform:translate(-50%,-50%) rotate(0deg);}to{transform:translate(-50%,-50%) rotate(360deg);}}
+@keyframes breathe{0%,100%{transform:translate(-50%,-50%) scale(1);}50%{transform:translate(-50%,-50%) scale(1.04);}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.4);opacity:.6;}}
+@keyframes bobDown{0%,100%{transform:translateX(-50%) translateY(0);opacity:1;}50%{transform:translateX(-50%) translateY(9px);opacity:.25;}}
+
+/* RESPONSIVE */
+@media(max-width:1020px){
+  #hero{grid-template-columns:1fr;padding:96px 24px 60px;gap:56px;}
+  .hero-right{height:380px;}
+  .orbit-wrap{width:300px;height:300px;}
+  .spin-ring{width:240px;height:240px;}
+  .spin-ring2{width:160px;height:160px;}
+  section{padding:68px 24px;}
+  nav{padding:18px 24px;}nav.scrolled{padding:12px 24px;}
+  .about-wrap{grid-template-columns:1fr;gap:36px;}
+  .about-sticky{position:static;}
+  .edu-wrap{grid-template-columns:1fr;}
+  footer{padding:44px 24px 30px;}
+  .f-nav{align-items:flex-start;}
+}
+@media(max-width:640px){
+  .skill-grid{grid-template-columns:1fr;}
+  .nav-resume{display:none;}
+  .oc{padding:9px 12px;min-width:120px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">A<span>.</span>Singh</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+  </ul>
+  <a href="https://drive.google.com/file/d/1iGsGBnKrvj7lW6SXmV2GkxOjKwx91LIc/view?usp=sharing" target="_blank" class="nav-resume">
+    <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+    Resume
+  </a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-mesh"></div>
+
+  <div class="hero-left">
+    <div class="hero-tag">Open to HR Opportunities</div>
+    <h1 class="hero-name">Anjali<br><span class="hi">Singh</span></h1>
+    <p class="hero-role">
+      <strong>Human Resources Enthusiast</strong> &nbsp;|&nbsp; Recruitment &nbsp;|&nbsp; HR Operations &nbsp;|&nbsp; Employee Support
+    </p>
+    <p class="hero-desc">
+      HR professional with a talent acquisition and recruitment background — vast exposure to candidate sourcing, interview management, and onboarding support. Passionate about matching the right talent to the right opportunities to strengthen organizational success.
+    </p>
+    <div class="hero-ctas">
+      <a href="mailto:anjalisinghknp1295@gmail.com" class="btn-primary">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/><path d="M3 7l9 6 9-6"/></svg>
+        Get in Touch
+      </a>
+      <a href="https://www.linkedin.com/in/anjali-singh-3a2b1531b/" target="_blank" class="btn-outline">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 11v5"/><path d="M8 8v.01"/><path d="M12 16v-5"/><path d="M16 16v-3a2 2 0 10-4 0"/><path d="M3 7a4 4 0 014-4h10a4 4 0 014 4v10a4 4 0 01-4 4H7a4 4 0 01-4-4z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://drive.google.com/file/d/1iGsGBnKrvj7lW6SXmV2GkxOjKwx91LIc/view?usp=sharing" target="_blank" class="btn-outline">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        View Resume
+      </a>
+    </div>
+    <!-- icons row — properly spaced below buttons -->
+    <div class="hero-icons">
+      <a href="mailto:anjalisinghknp1295@gmail.com" class="hero-icon" aria-label="Email" title="Email">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/><path d="M3 7l9 6 9-6"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/anjali-singh-3a2b1531b/" target="_blank" class="hero-icon" aria-label="LinkedIn" title="LinkedIn">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 11v5"/><path d="M8 8v.01"/><path d="M12 16v-5"/><path d="M16 16v-3a2 2 0 10-4 0"/><path d="M3 7a4 4 0 014-4h10a4 4 0 014 4v10a4 4 0 01-4 4H7a4 4 0 01-4-4z"/></svg>
+      </a>
+      <a href="https://drive.google.com/file/d/1iGsGBnKrvj7lW6SXmV2GkxOjKwx91LIc/view?usp=sharing" target="_blank" class="hero-icon" aria-label="Resume" title="View Resume" style="border-color:#fecdd3;color:var(--rose);">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- HERO RIGHT: orbit -->
+  <div class="hero-right">
+    <div class="orbit-wrap">
+      <div class="spin-ring"></div>
+      <div class="spin-ring2"></div>
+      <div class="center-badge">
+        <div class="cb-initials">AS</div>
+        <div class="cb-sub">HR Pro</div>
+      </div>
+      <!-- Orbit card 1 -->
+      <div class="oc">
+        <div class="oc-ico"><svg width="13" height="13" fill="none" stroke="#e11d48" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="oc-title">Recruitment</div>
+        <div class="oc-sub">End-to-end hiring</div>
+        <div class="oc-pill">Active</div>
+      </div>
+      <!-- Orbit card 2 -->
+      <div class="oc">
+        <div class="oc-ico"><svg width="13" height="13" fill="none" stroke="#e11d48" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg></div>
+        <div class="oc-title">ATS Mgmt</div>
+        <div class="oc-sub">Tracker &amp; records</div>
+        <div class="oc-pill">Skilled</div>
+      </div>
+      <!-- Orbit card 3 -->
+      <div class="oc">
+        <div class="oc-ico"><svg width="13" height="13" fill="none" stroke="#e11d48" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="oc-title">Screening</div>
+        <div class="oc-sub">Resume &amp; HR rounds</div>
+        <div class="oc-pill">Expert</div>
+      </div>
+      <!-- Orbit card 4 -->
+      <div class="oc">
+        <div class="oc-ico"><svg width="13" height="13" fill="none" stroke="#e11d48" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div class="oc-title">Onboarding</div>
+        <div class="oc-sub">Docs &amp; process</div>
+        <div class="oc-pill">8.33 CGPA</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-dot"></div>
+    scroll
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="eyebrow">Who I Am</div>
+  <div class="sec-title">About Me</div>
+  <div class="about-wrap">
+    <div class="about-sticky reveal">
+      <div class="about-card">
+        <div class="about-avatar">AS</div>
+        <div class="ac-name">Anjali Singh</div>
+        <div class="ac-role">HR Professional · Recruitment Specialist<br>HR Operations · Employee Support</div>
+        <div class="ac-stat"><span class="ac-stat-l">Status</span><span class="ac-stat-v" style="color:var(--rose)">Open to Opportunities</span></div>
+        <div class="ac-stat"><span class="ac-stat-l">Location</span><span class="ac-stat-v">India</span></div>
+        <div class="ac-stat"><span class="ac-stat-l">Education</span><span class="ac-stat-v">BCA – CGPA 8.33</span></div>
+        <div class="ac-stat"><span class="ac-stat-l">Experience</span><span class="ac-stat-v">1 Year </span></div>
+        <div class="ac-links">
+          <a href="mailto:anjalisinghknp1295@gmail.com" class="ac-link">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/><path d="M3 7l9 6 9-6"/></svg>
+            anjalisinghknp1295@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/anjali-singh-3a2b1531b/" target="_blank" class="ac-link">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 11v5"/><path d="M8 8v.01"/><path d="M12 16v-5"/><path d="M16 16v-3a2 2 0 10-4 0"/><path d="M3 7a4 4 0 014-4h10a4 4 0 014 4v10a4 4 0 01-4 4H7a4 4 0 01-4-4z"/></svg>
+            linkedin.com/in/anjali-singh
+          </a>
+          <a href="https://drive.google.com/file/d/1iGsGBnKrvj7lW6SXmV2GkxOjKwx91LIc/view?usp=sharing" target="_blank" class="ac-link resume">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            View Resume ↗
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="reveal d1">
+      <p>I'm a passionate HR professional completing my Bachelor of Computer Applications at Maharana Pratap Group of Institutions with a 8.33 CGPA. My HR journey spans talent acquisition, recruitment coordination, employee engagement, and operations — with hands-on experience at three organizations.</p>
+      <p>I bring a deep commitment to seamless candidate experiences and building processes that connect the right people to the right roles. My tech background adds an analytical edge — whether managing ATS systems, building Excel trackers, or streamlining onboarding workflows.</p>
+      <div class="skill-grid">
+        <div class="skill-card">
+          <div class="skill-head">HR Core Skills</div>
+          <div class="skill-tags">
+            <span class="s-tag">Recruitment</span><span class="s-tag">Talent Sourcing</span><span class="s-tag">Resume Screening</span><span class="s-tag">Interview Scheduling</span><span class="s-tag">Onboarding</span><span class="s-tag">ATS Management</span><span class="s-tag">HR Documentation</span><span class="s-tag">Job Posting</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-head">Soft Skills</div>
+          <div class="skill-tags">
+            <span class="s-tag">Communication</span><span class="s-tag">Interpersonal</span><span class="s-tag">Problem-Solving</span><span class="s-tag">Leadership</span><span class="s-tag">Conflict Management</span><span class="s-tag">Relationship Building</span><span class="s-tag">Customer Service</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-head">Tools &amp; Platforms</div>
+          <div class="skill-tags">
+            <span class="s-tag">Naukri.com</span><span class="s-tag">LinkedIn</span><span class="s-tag">Indeed</span><span class="s-tag">MS Excel</span><span class="s-tag">MS Word</span><span class="s-tag">MS PowerPoint</span><span class="s-tag">Google Meet</span><span class="s-tag">Zoom</span><span class="s-tag">Outlook</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-head">Certifications</div>
+          <div class="skill-tags">
+            <span class="cert-chip">Google Ads</span><span class="cert-chip">CCBA</span><span class="cert-chip">Gen AI Studio</span><span class="cert-chip">MS Excel Basics</span><span class="cert-chip">Python Dev</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- EXPERIENCE -->
+<style>
+  /* ===== Experience Section Width & Styling ===== */
+  #experience .exp-list {
+    max-width: 950px;   /* Aap yahan width aur bhi badha sakte ho */
+    width: 100%;
+    margin: auto;
+  }
+
+  #experience .exp-item {
+    padding: 25px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  #experience .exp-co a {
+    color: var(--theme);  /* Same theme color */
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  #experience .exp-co a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+
+<section id="experience">
+  <div class="eyebrow">Work History</div>
+  <div class="sec-title">Experience</div>
+
+  <div class="exp-list">
+
+    <!-- Strawberry -->
+    <div class="exp-item reveal">
+      <div class="exp-top">
+        <div>
+          <div class="exp-co">
+            <a href="https://strawberryinfotech.com/" target="_blank">Strawberry InfoTech Pvt. Ltd.</a>
+          </div>
+          <div class="exp-role">HR Executive <span class="exp-tag">Current</span></div>
+        </div>
+        <div class="exp-date">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          Dec 2025 – Present
+        </div>
+      </div>
+
+      <ul class="exp-ul">
+        <li>Managed recruitment coordination by monitoring open roles and supporting hiring requirements.</li>
+        <li>Scheduled interviews, communicated with candidates, and ensured smooth interview flow.</li>
+        <li>Maintained and updated employee and recruitment records with accuracy.</li>
+        <li>Assisted in onboarding processes and documentation for newly hired employees.</li>
+        <li>Supported day-to-day HR operations and internal coordination across teams.</li>
+      </ul>
+    </div>
+
+    <!-- Brenstone -->
+    <div class="exp-item reveal d1">
+      <div class="exp-top">
+        <div>
+          <div class="exp-co">
+            <a href="https://brenstoneinternational.com/" target="_blank">Brenstone International</a>
+          </div>
+          <div class="exp-role">HR Intern</div>
+        </div>
+        <div class="exp-date">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          Nov 2025 – Dec 2025
+        </div>
+      </div>
+
+      <ul class="exp-ul">
+        <li>Identified and shortlisted candidates using job portals, referrals, and direct sourcing methods.</li>
+        <li>Conducted resume evaluations and assisted in coordinating interview rounds.</li>
+        <li>Supported onboarding activities and updated recruitment trackers.</li>
+      </ul>
+    </div>
+
+    <!-- Outpace -->
+    <div class="exp-item reveal d2">
+      <div class="exp-top">
+        <div>
+          <div class="exp-co">
+            <a href="https://outpace.in/" target="_blank">Outpace Consulting</a>
+          </div>
+          <div class="exp-role">
+            HR Intern 
+            <span style="color:var(--soft);font-size:.78rem;font-weight:400;margin-left:5px;">(Remote)</span>
+          </div>
+        </div>
+
+        <div class="exp-date">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          May 2025 – Oct 2025
+        </div>
+      </div>
+
+      <ul class="exp-ul">
+        <li>Assisted in candidate screening and preliminary HR discussions.</li>
+        <li>Coordinated interview schedules and ensured timely candidate follow-ups.</li>
+        <li>Prepared recruitment-related reports and maintained data using Excel.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+<!-- EDUCATION -->
+<section id="education">
+  <div class="eyebrow">Academic Background</div>
+  <div class="sec-title">Education</div>
+  <div class="edu-wrap">
+    <div class="edu-main reveal">
+      <div class="edu-yr">July 2023 – May 2026</div>
+      <div class="edu-deg">Bachelor of<br>Computer Applications</div>
+    <!-- EDUCATION INST WITH NON-BLUE CLICKABLE LINK -->
+<style>
+  .edu-link {
+    color: inherit;          /* Same text color */
+    text-decoration: none;   /* No underline */
+    font-weight: 600;
+  }
+
+  .edu-link:hover {
+    text-decoration: underline; /* Hover underline only */
+  }
+</style>
+
+<div class="edu-inst">
+  <a class="edu-link" href="https://www.mpgi.edu.in/" target="_blank">
+    Maharana Pratap Group of Institutions
+  </a>
+</div>
+      <div class="edu-score">
+        <div class="edu-num">8.33</div>
+        <div class="edu-denom">/ 10 CGPA</div>
+      </div>
+    </div>
+    <div class="edu-side">
+      <div class="edu-scard reveal d1">
+        <div class="edu-stitle">Focus Areas</div>
+        <div class="edu-sitems">
+          <div class="edu-sitem">HR Technology &amp; Digital Transformation</div>
+          <div class="edu-sitem">Computer Applications &amp; Business Systems</div>
+        </div>
+      </div>
+      <div class="edu-scard reveal d2">
+        <div class="edu-stitle">Achievements &amp; Activities</div>
+        <div class="edu-sitems">
+          <div class="edu-sitem">Code-O-Fiesta Participation</div>
+          <div class="edu-sitem">HackerRank Participation</div>
+          <div class="edu-sitem">Event Coordination Experience</div>
+          <div class="edu-sitem">District-Level Debate Participant</div>
+        </div>
+      </div>
+      <div class="edu-scard reveal d3">
+        <div class="edu-stitle">Certifications</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:2px;">
+          <span class="cert-chip">Google Ads</span>
+          <span class="cert-chip">CCBA</span>
+          <span class="cert-chip">Gen AI Studio</span>
+          <span class="cert-chip">MS Excel Basics</span>
+          <span class="cert-chip">Python Dev</span>
+          <span class="cert-chip">National Financial Literacy Quiz</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="f-name">Anjali <span>Singh</span></div>
+      <div class="f-tag">HR Professional · Recruitment Specialist · Employee Engagement</div>
+      <div class="f-socials">
+        <a href="mailto:anjalisinghknp1295@gmail.com" class="f-social" aria-label="Email">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/><path d="M3 7l9 6 9-6"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/anjali-singh-3a2b1531b/" target="_blank" class="f-social" aria-label="LinkedIn">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 11v5"/><path d="M8 8v.01"/><path d="M12 16v-5"/><path d="M16 16v-3a2 2 0 10-4 0"/><path d="M3 7a4 4 0 014-4h10a4 4 0 014 4v10a4 4 0 01-4 4H7a4 4 0 01-4-4z"/></svg>
+        </a>
+        <a href="https://drive.google.com/file/d/1iGsGBnKrvj7lW6SXmV2GkxOjKwx91LIc/view?usp=sharing" target="_blank" class="f-social" aria-label="Resume" style="border-color:rgba(225,29,72,.3);color:var(--rose-mid);">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </a>
+      </div>
+    </div>
+
+  <div class="f-copy">© 2025 Anjali Singh. All rights reserved.</div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);});
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:.1});
+reveals.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
