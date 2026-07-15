@@ -538,7 +538,7 @@ footer{background:var(--dark);color:var(--white);padding:56px 56px 36px;}
       <div class="about-card">
         <div class="about-avatar">AS</div>
         <div class="ac-name">Anjali Singh</div>
-        <div class="ac-role">HR Professional · Recruitment Specialist<br>HR Operations · Employee Support</div>
+        <div class="ac-role">Staffing Delivery Manager · Recruitment Specialist<br>HR Operations · Vendor Management</div>
         <div class="ac-stat"><span class="ac-stat-l">Status</span><span class="ac-stat-v" style="color:var(--rose)">Open to Opportunities</span></div>
         <div class="ac-stat"><span class="ac-stat-l">Location</span><span class="ac-stat-v">Gurugram,Haryana</span></div>
         <div class="ac-stat"><span class="ac-stat-l">Education</span><span class="ac-stat-v">BCA – CGPA 8.33</span></div>
@@ -560,13 +560,13 @@ footer{background:var(--dark);color:var(--white);padding:56px 56px 36px;}
       </div>
     </div>
     <div class="reveal d1">
-      <p>I'm a passionate HR professional completing my Bachelor of Computer Applications at Maharana Pratap Group of Institutions with a 8.33 CGPA. My HR journey spans talent acquisition, recruitment coordination, employee engagement, and operations — with hands-on experience at three organizations.</p>
-      <p>I bring a deep commitment to seamless candidate experiences and building processes that connect the right people to the right roles. My tech background adds an analytical edge — whether managing ATS systems, building Excel trackers, or streamlining onboarding workflows.</p>
+      <p>I'm a passionate HR professional completing my Bachelor of Computer Applications at Maharana Pratap Group of Institutions with a 8.33 CGPA. My journey has grown from recruitment coordination into staffing delivery management — currently driving end-to-end technical staffing at BRIL Consultancy Services, where I manage client relationships, vendor partnerships, and the complete resource lifecycle from onboarding to offboarding.</p>
+      <p>I bring a deep commitment to seamless candidate and client experiences — negotiating vendor contracts, evaluating talent against technical benchmarks, and tracking performance metrics like time-to-hire and fulfilment rates. My tech background adds an analytical edge — whether managing ATS systems, building Excel trackers, or streamlining onboarding workflows.</p>
       <div class="skill-grid">
         <div class="skill-card">
           <div class="skill-head">HR Core Skills</div>
           <div class="skill-tags">
-            <span class="s-tag">Recruitment</span><span class="s-tag">Talent Sourcing</span><span class="s-tag">Resume Screening</span><span class="s-tag">Interview Scheduling</span><span class="s-tag">Onboarding</span><span class="s-tag">ATS Management</span><span class="s-tag">HR Documentation</span><span class="s-tag">Job Posting</span>
+            <span class="s-tag">Recruitment</span><span class="s-tag">Talent Sourcing</span><span class="s-tag">Resume Screening</span><span class="s-tag">Interview Scheduling</span><span class="s-tag">Onboarding</span><span class="s-tag">ATS Management</span><span class="s-tag">HR Documentation</span><span class="s-tag">Job Posting</span><span class="s-tag">Staffing Delivery</span><span class="s-tag">Vendor Management</span><span class="s-tag">Client Relationship Mgmt</span><span class="s-tag">Contract Negotiation</span><span class="s-tag">SLA Management</span><span class="s-tag">Resource Lifecycle Mgmt</span><span class="s-tag">Offboarding</span>
           </div>
         </div>
         <div class="skill-card">
@@ -614,6 +614,28 @@ footer{background:var(--dark);color:var(--white);padding:56px 56px 36px;}
   #experience .exp-co a:hover {
     text-decoration: underline;
   }
+
+  /* Multi-role company block (LinkedIn-style stacked positions) */
+  .exp-roles{
+    display:flex;flex-direction:column;
+    margin-top:6px;
+  }
+  .exp-role-block{
+    position:relative;
+    padding:18px 0 18px 22px;
+    border-left:2px solid var(--border);
+  }
+  .exp-role-block:first-child{padding-top:2px;}
+  .exp-role-block:last-child{padding-bottom:2px;}
+  .exp-role-block::before{
+    content:'';position:absolute;left:-5px;top:24px;
+    width:8px;height:8px;border-radius:50%;
+    background:var(--rose);border:2px solid var(--white);
+    box-shadow:0 0 0 1.5px var(--rose);
+  }
+  .exp-role-block:first-child::before{top:8px;}
+  .erb-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:12px;}
+  .erb-role{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--dark);}
 </style>
 
 
@@ -623,14 +645,13 @@ footer{background:var(--dark);color:var(--white);padding:56px 56px 36px;}
 
   <div class="exp-list">
 
-    <!-- Strawberry -->
+    <!-- BRIL Consultancy Services -->
     <div class="exp-item reveal">
       <div class="exp-top">
         <div>
           <div class="exp-co">
-            <a href="https://strawberryinfotech.com/" target="_blank">Strawberry InfoTech Pvt. Ltd.</a>
+            <a href="https://www.linkedin.com/company/110203285/" target="_blank">BRIL Consultancy Services</a>
           </div>
-          <div class="exp-role">HR Executive <span class="exp-tag">Current</span></div>
         </div>
         <div class="exp-date">
           <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -639,44 +660,57 @@ footer{background:var(--dark);color:var(--white);padding:56px 56px 36px;}
             <line x1="8" y1="2" x2="8" y2="6"/>
             <line x1="3" y1="10" x2="21" y2="10"/>
           </svg>
-          Dec 2025 – Present
+          Full-time · 8 mos · Gurugram, Haryana, India · On-site
         </div>
       </div>
 
-      <ul class="exp-ul">
-        <li>Managed recruitment coordination by monitoring open roles and supporting hiring requirements.</li>
-        <li>Scheduled interviews, communicated with candidates, and ensured smooth interview flow.</li>
-        <li>Maintained and updated employee and recruitment records with accuracy.</li>
-        <li>Assisted in onboarding processes and documentation for newly hired employees.</li>
-        <li>Supported day-to-day HR operations and internal coordination across teams.</li>
-      </ul>
-    </div>
-
-    <!-- Brenstone -->
-    <div class="exp-item reveal d1">
-      <div class="exp-top">
-        <div>
-          <div class="exp-co">
-            <a href="https://brenstoneinternational.com/" target="_blank">Brenstone International</a>
+      <div class="exp-roles">
+        <!-- Current role -->
+        <div class="exp-role-block">
+          <div class="erb-top">
+            <div class="erb-role">Staffing Delivery Manager <span class="exp-tag">Current</span></div>
+            <div class="exp-date">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              May 2026 – Present · 3 mos
+            </div>
           </div>
-          <div class="exp-role">HR Intern</div>
+          <ul class="exp-ul">
+            <li>Act as the primary point of contact for clients to understand their technical staffing needs, manage expectations, and maintain high service standards in alignment with SLAs.</li>
+            <li>Empanel and collaborate with staffing vendors to distribute project mandates, negotiate rates/contracts, and ensure cost-efficient talent sourcing.</li>
+            <li>Evaluate and shortlist vendor-submitted profiles against technical and cultural benchmarks before coordinating client interviews.</li>
+            <li>Oversee the entire resource lifecycle—including smooth onboarding, IT provisioning, conflict resolution, performance tracking, and structured offboarding.</li>
+            <li>Conduct regular feedback sessions with clients to assess resource performance and track operational metrics like time-to-hire and fulfilment rates.</li>
+          </ul>
         </div>
-        <div class="exp-date">
-          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <rect x="3" y="4" width="18" height="18" rx="2"/>
-            <line x1="16" y1="2" x2="16" y2="6"/>
-            <line x1="8" y1="2" x2="8" y2="6"/>
-            <line x1="3" y1="10" x2="21" y2="10"/>
-          </svg>
-          Nov 2025 – Dec 2025
+
+        <!-- Previous role -->
+        <div class="exp-role-block">
+          <div class="erb-top">
+            <div class="erb-role">Human Resources Executive</div>
+            <div class="exp-date">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              Dec 2025 – Apr 2026 · 5 mos
+            </div>
+          </div>
+          <ul class="exp-ul">
+            <li>Managed recruitment coordination by monitoring open roles and supporting hiring requirements.</li>
+            <li>Scheduled interviews, communicated with candidates, and ensured smooth interview flow.</li>
+            <li>Maintained and updated employee and recruitment records with accuracy.</li>
+            <li>Assisted in onboarding processes and documentation for newly hired employees.</li>
+            <li>Supported day-to-day HR operations and internal coordination across teams.</li>
+          </ul>
         </div>
       </div>
-
-      <ul class="exp-ul">
-        <li>Identified and shortlisted candidates using job portals, referrals, and direct sourcing methods.</li>
-        <li>Conducted resume evaluations and assisted in coordinating interview rounds.</li>
-        <li>Supported onboarding activities and updated recruitment trackers.</li>
-      </ul>
     </div>
 
     <!-- Outpace -->
